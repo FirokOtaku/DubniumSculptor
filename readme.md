@@ -85,3 +85,7 @@ public class UserBean
     String password;
 }
 ```
+
+----
+
+> ![lgpl3](https://www.gnu.org/graphics/lgplv3-147x51.png)
