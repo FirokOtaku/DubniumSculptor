@@ -1,5 +1,7 @@
 package firok.spring.dbsculptor;
 
+import org.intellij.lang.annotations.Language;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -18,7 +20,7 @@ public @interface Dubnium
 	/**
 	 * 自定义生成 SQL
 	 * */
-	String sculpturalScript() default "";
+	@Language("SQL") String sculpturalScript() default "";
 
 	Class<? extends Sculptor> sculpturalHandler() default Sculptor.class;
 }
