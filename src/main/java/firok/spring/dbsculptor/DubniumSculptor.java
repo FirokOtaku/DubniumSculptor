@@ -1,11 +1,16 @@
 package firok.spring.dbsculptor;
 
 import firok.spring.mvci.runtime.CurrentMappers;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
+import jakarta.annotation.PostConstruct;
 
 /**
  * 蚀刻器主体
@@ -15,7 +20,7 @@ import org.springframework.stereotype.Component;
  * */
 @Component
 @ConditionalOnExpression("${firok.spring.dbsculptor.enable:false}")
-public class DubniumSculptor implements CommandLineRunner
+public class DubniumSculptor implements ApplicationContextAware
 {
 //	final Object mappers;
 //
@@ -28,19 +33,25 @@ public class DubniumSculptor implements CommandLineRunner
 //	}
 	public static final String Name = "Dubnium Sculptor";
 	@Deprecated(forRemoval = true)
-	public static final String Version = "17.2.0";
+	public static final String Version = "17.3.0";
 
 	@Autowired
-	@Qualifier("directMapper")
+	@Qualifier("dubniumDirectMapper")
 	Object directMapper;
 
 	@Autowired
 	@Qualifier("currentMappers")
 	Object mappers;
 
-
+	private ApplicationContext context;
 	@Override
-	public void run(String... args) throws Exception
+	public void setApplicationContext(ApplicationContext context) throws BeansException
+	{
+		this.context = context;
+	}
+
+	@PostConstruct
+	public void run() throws Exception
 	{
 		var classCurrentBeanNames = Class.forName("firok.spring.mvci.runtime.CurrentBeanNames");
 		var fieldCurrentBeanNamesNames = classCurrentBeanNames.getField("NAMES");
@@ -61,7 +72,8 @@ public class DubniumSculptor implements CommandLineRunner
 							beanClass,
 							dubnium,
 							beanMapper,
-							directMapper
+							directMapper,
+							context
 					);
 
 			if(sculpturalHandler.needSculptured())
