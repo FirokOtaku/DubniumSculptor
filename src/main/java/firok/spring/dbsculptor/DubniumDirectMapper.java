@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.*;
 
 @Mapper
-public interface DirectMapper
+public interface DubniumDirectMapper
 {
 	@Insert("${sql}")
 	int insert(@Param("sql") String sql);

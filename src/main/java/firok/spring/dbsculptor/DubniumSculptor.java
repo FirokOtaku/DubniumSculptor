@@ -26,6 +26,9 @@ public class DubniumSculptor implements CommandLineRunner
 //		this.mappers = mappers;
 //		this.directMapper = directMapper;
 //	}
+	public static final String Name = "Dubnium Sculptor";
+	@Deprecated(forRemoval = true)
+	public static final String Version = "17.2.0";
 
 	@Autowired
 	@Qualifier("directMapper")

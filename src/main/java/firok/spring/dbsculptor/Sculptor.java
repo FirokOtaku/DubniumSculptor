@@ -10,10 +10,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * */
 public class Sculptor
 {
-	final Class<?> beanClass;
-	final Dubnium dubnium;
-	final BaseMapper<?> beanMapper;
-	final DirectMapper directMapper;
+	protected final Class<?> beanClass;
+	protected final Dubnium dubnium;
+	protected final BaseMapper<?> beanMapper;
+	protected final DubniumDirectMapper directMapper;
 
 	/**
 	 * @param beanClass 实体类
@@ -21,7 +21,7 @@ public class Sculptor
 	 * @param beanMapper 实体相关 mapper. 如果没有启用相关组件, 此参数为空
 	 * @param directMapper 直接执行 SQL 用辅助类
 	 * */
-	public Sculptor(Class<?> beanClass, Dubnium dubnium, BaseMapper<?> beanMapper, DirectMapper directMapper)
+	public Sculptor(Class<?> beanClass, Dubnium dubnium, BaseMapper<?> beanMapper, DubniumDirectMapper directMapper)
 	{
 		this.beanClass = beanClass;
 		this.dubnium = dubnium;

@@ -38,31 +38,30 @@ firok:
 Java 17+
 
 ```java
-import firok.spring.dbsculptor.DirectMapper;
+import firok.spring.dbsculptor.DubniumDirectMapper;
 import firok.spring.mvci.runtime.CurrentMappers;
 import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 
 // 使相关组件可以被扫描
 @MapperScans({
-    @MapperScan("firok.spring.dbsculptor"),
+		@MapperScan("firok.spring.dbsculptor"),
 })
 @ComponentScans({
-    @ComponentScan("firok.spring.mvci.runtime"),
-    @ComponentScan("firok.spring.dbsculptor"),
+		@ComponentScan("firok.spring.mvci.runtime"),
+		@ComponentScan("firok.spring.dbsculptor"),
 })
 public class AnySpringApplication
 {
-    // 保证项目里有这两个实例,
-    // 且名为 currentMappers 和 directMapper
-    @Autowired
-    CurrentMappers currentMappers;
-    @Autowired
-    DirectMapper directMapper;
+	// 保证项目里有这两个实例,
+	// 且名为 currentMappers 和 directMapper
+	@Autowired
+	CurrentMappers currentMappers;
+	@Autowired
+	DubniumDirectMapper directMapper;
 }
 ```
 
