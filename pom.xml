@@ -7,7 +7,7 @@
 
     <groupId>firok.spring</groupId>
     <artifactId>dbsculptor</artifactId>
-    <version>17.3.0</version>
+    <version>17.4.0</version>
 
     <properties>
         <java.version>17</java.version>
@@ -17,13 +17,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+        <mvci.version>17.7.0</mvci.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>firok.spring</groupId>
             <artifactId>mvci</artifactId>
-            <version>17.6.0</version>
+            <version>${mvci.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -74,7 +76,7 @@
                         <annotationProcessorPath>
                             <groupId>firok.spring</groupId>
                             <artifactId>mvci</artifactId>
-                            <version>17.6.0</version>
+                            <version>${mvci.version}</version>
                         </annotationProcessorPath>
                     </annotationProcessorPaths>
                 </configuration>
